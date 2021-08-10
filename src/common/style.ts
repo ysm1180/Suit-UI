@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { CSSInterpolation, CSSObject, SerializedStyles } from '@emotion/serialize';
+import { CSSInterpolation } from '@emotion/serialize';
 import { CSSProperties } from 'react';
 import {
     Breakpoints,
@@ -111,6 +111,9 @@ export interface PositionProps extends TopProps, RightProps, BottomProps, LeftPr
 }
 
 export const position: CssStyleFn<PositionProps> = ({ position, left, right, top, bottom }: PositionProps) => {
+    if (!position && !left && !right && !top && !bottom) {
+        return undefined;
+    }
     return css`
         ${cssBreakpoints('position', position, (value) => value)}
         ${cssBreakpoints('left', left, (value) => cssLength(value))}
@@ -185,6 +188,22 @@ export const margin: CssStyleFn<MarginProps> = ({
     mx,
     my,
 }: MarginProps) => {
+    if (
+        !m &&
+        !margin &&
+        !mx &&
+        !my &&
+        !ml &&
+        !marginLeft &&
+        !mt &&
+        !marginTop &&
+        !mr &&
+        !marginRight &&
+        !mb &&
+        !marginBottom
+    ) {
+        return undefined;
+    }
     return css`
         ${cssBreakpoints('margin', m ?? margin, (value) => cssLength(value))}
         ${cssBreakpoints('margin-left', mx ?? ml ?? marginLeft, (value) => cssLength(value))}
@@ -259,6 +278,22 @@ export const padding: CssStyleFn<PaddingProps> = ({
     px,
     py,
 }: PaddingProps) => {
+    if (
+        !p &&
+        !padding &&
+        !px &&
+        !py &&
+        !pl &&
+        !paddingLeft &&
+        !pt &&
+        !paddingTop &&
+        !pr &&
+        !paddingRight &&
+        !pb &&
+        !paddingBottom
+    ) {
+        return undefined;
+    }
     return css`
         ${cssBreakpoints('padding', p ?? padding, (value) => cssLength(value))}
         ${cssBreakpoints('padding-left', px ?? pl ?? paddingLeft, (value) => cssLength(value))}
@@ -287,6 +322,10 @@ export const textColor: CssStyleFn<TextColorProps> = ({ textColor }: TextColorPr
 export interface ColorProps extends TextColorProps, BackgroundColorProps {}
 
 export const color: CssStyleFn<ColorProps> = ({ textColor, bg, backgroundColor }: ColorProps) => {
+    if (!textColor && !bg && !backgroundColor) {
+        return undefined;
+    }
+
     return css`
         ${cssBreakpoints('background-color', bg ?? backgroundColor, (value) => value)}
         ${cssBreakpoints('color', textColor, (value) => value)}
@@ -328,6 +367,9 @@ export interface BorderProps extends BorderWidthProps, BorderStyleProps, BorderC
 }
 
 export const border: CssStyleFn<BorderProps> = ({ border, borderWidth, borderColor, borderStyle }: BorderProps) => {
+    if (!border && !borderWidth && !borderColor && !borderStyle) {
+        return undefined;
+    }
     return css`
         ${cssBreakpoints('border', border, (value) => value)}
         ${cssBreakpoints('border-width', borderWidth, (value) => cssLength(value))}
@@ -477,6 +519,10 @@ export const flex: CssStyleFn<FlexProps> = ({
     flexShrink,
     flexWrap,
 }: FlexProps) => {
+    if (!flex && !flexBasis && !flexDirection && !flexGrow && !flexShrink && !flexWrap) {
+        return undefined;
+    }
+
     return css`
         ${cssBreakpoints('flex', flex, (value) => `${value}`)}
         ${cssBreakpoints('flex-Basis', flexBasis, (value) => value)}
@@ -549,6 +595,9 @@ export interface OverflowProps extends OverflowXProps, OverflowYProps {
 }
 
 export const overflow: CssStyleFn<OverflowYProps> = ({ overflow, overflowX, overflowY }: OverflowProps) => {
+    if (!overflow && !overflowX && !overflowY) {
+        return undefined;
+    }
     return css`
         ${cssBreakpoints('overflow', overflow, (value) => value)};
         ${cssBreakpoints('overflow-x', overflowX, (value) => value)};

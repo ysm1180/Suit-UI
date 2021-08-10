@@ -129,7 +129,7 @@ export const cssLength = (length?: Length) => {
 export const cssBreakpoints = <T extends string | number | symbol>(
     key: string,
     value?: T | Breakpoints<T>,
-    transform: (value?: T) => string | undefined = (value) => undefined
+    transform: (value: T) => string | undefined = (value) => undefined
 ) => {
     let appliedValue: { [bp in 'xs' | 'sm' | 'md' | 'lg' | 'xl']?: T } = {};
     if (typeof value === 'object') {
@@ -139,6 +139,9 @@ export const cssBreakpoints = <T extends string | number | symbol>(
     }
 
     const defaultValue = appliedValue.xs || appliedValue.sm || appliedValue.md || appliedValue.lg || appliedValue.xl;
+    if (!defaultValue) {
+        return undefined;
+    }
     return css`
         // Small devices (landscape phones, 576px and up)
         ${appliedValue.sm &&
@@ -146,25 +149,19 @@ export const cssBreakpoints = <T extends string | number | symbol>(
             @media (min-width: ${breakpointPixels.sm}px) {
                 ${key}: ${transform(appliedValue.sm)};
             }
-        `}
-
-        // Medium devices (tablets, 768px and up)
+        `} // Medium devices (tablets, 768px and up)
         ${appliedValue.md &&
         css`
             @media (min-width: ${breakpointPixels.md}px) {
                 ${key}: ${transform(appliedValue.md)};
             }
-        `}
-
-        // Large devices (desktops, 992px and up)
+        `} // Large devices (desktops, 992px and up)
         ${appliedValue.lg &&
         css`
             @media (min-width: ${breakpointPixels.lg}px) {
                 ${key}: ${transform(appliedValue.lg)};
             }
-        `}
-
-        // X-Large devices (large desktops, 1200px and up)
+        `} // X-Large devices (large desktops, 1200px and up)
         ${appliedValue.xl &&
         css`
             @media (min-width: ${breakpointPixels.xl}px) {
