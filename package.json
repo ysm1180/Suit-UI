@@ -8,9 +8,6 @@
         "./dist/suit.es.js": "./dist/suit.es.js"
     },
     "typings": "dist/index.d.ts",
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
-    },
     "repository": {
         "type": "git",
         "url": "https://github.com/ysm1180/suit-ui.git"
