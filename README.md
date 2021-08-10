@@ -2,21 +2,21 @@
 
 React UI library 입니다.
 
-#### **[Demo](https://ysm1180.github.io/suit-ui/)**
+#### **[Demo](https://ysm1180.github.io/Suit-UI/)**
 
 ## Installation
 
 ```shell
-npm install suit-ui
+npm install @ysm1180/suit-ui
 # or
-yarn add suit-ui
+yarn add @ysm1180/suit-ui
 ```
 
 ## Usage
 
 ```typescript
 import React from 'react';
-import { Button } from 'suit-ui';
+import { Button } from '@ysm1180/suit-ui';
 
 function App() {
   return <Button size="sm">Hello world!</Button>
@@ -28,5 +28,5 @@ function App() {
 
 ```typescript
 // index.tsx
-import 'suit-ui/dist/style.css';
+import '@ysm1180/suit-ui/dist/style.css';
 ```
