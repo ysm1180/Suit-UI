@@ -1,5 +1,5 @@
 {
-    "name": "suit-ui",
+    "name": "@ysm1180/suit-ui",
     "version": "0.1.0",
     "main": "dist/suit.umd.js",
     "module": "dist/suit.es.js",
