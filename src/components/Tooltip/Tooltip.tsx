@@ -71,6 +71,7 @@ const TooltipText = styled.div<FontSizeProps>`
 
 export interface TooltipInnerProps {
     id?: string;
+    container?: Element;
     target?: Element | null;
     title?: string;
     titleTextColor?: string;
@@ -88,6 +89,7 @@ export type TooltipProps = TooltipInnerProps & FontSizeProps & PaddingProps;
 const Tooltip: React.FC<TooltipProps> = memo(
     ({
         id,
+        container = document.body,
         target,
         title = '',
         toggle = 'hover',
@@ -220,7 +222,7 @@ const Tooltip: React.FC<TooltipProps> = memo(
                     </TooltipContent>
                 </TooltipContainer>
             ),
-            document.body
+            container
         );
     }
 );

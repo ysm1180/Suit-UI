@@ -213,6 +213,7 @@ export interface ButtonInnerProps {
     size?: ButtonSize;
     autoFocus?: boolean;
     hide?: boolean;
+    tooltipContainer?: Element;
 }
 
 export type ButtonProps = React.PropsWithChildren<ButtonInnerProps> &
@@ -251,6 +252,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             borderWidth = 0,
             borderColor = 'transparent',
             hide = false,
+            tooltipContainer,
             ...props
         },
         ref
@@ -320,6 +322,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                         target={innerRef}
                         fontSize={tooltipSize[size]!.fontSize}
                         padding={tooltipSize[size]!.padding}
+                        container={tooltipContainer}
                     >
                         {title}
                     </Tooltip>
