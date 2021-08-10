@@ -29,11 +29,20 @@ describe('Button', () => {
         expect(onClick).not.toHaveBeenCalled();
     });
 
-    it('hover over it to display the title tooltip when button`s title is not empty', () => {
-        const { getByRole } = render(<Button title="it is title">This is a button</Button>, {});
+    it('display the title tooltip by hovering over it when button`s title is not empty', async () => {
+        const tooltipContainer = document.createElement('div');
+        document.body.appendChild(tooltipContainer);
+
+        const { getByRole } = render(
+            <Button title="it is title" tooltipContainer={tooltipContainer}>
+                This is a button
+            </Button>
+        );
         const button = getByRole('button');
-        fireEvent.mouseEnter(button);
-        expect(screen.queryByRole('tooltip')).toBeInTheDocument();
+        fireEvent.mouseOver(button);
+        expect(await screen.findByText('it is title')).toBeInTheDocument();
+
+        document.body.removeChild(tooltipContainer);
     });
 
     it('should change loading state by clicking', () => {
