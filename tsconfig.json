@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "pretty": true,
+
+        "target": "ESNext",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "jsx": "preserve",
+        "types": ["jest", "@emotion/core", "node", "vite/client"],
+
+        "noEmit": true,
+        "incremental": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "tests", "test"]
+}

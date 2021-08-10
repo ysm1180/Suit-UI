@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "declaration": true,
+        "declarationDir": "./dist",
+        "rootDir": "./src",
+        "emitDeclarationOnly": true,
+        "noEmit": false,
+        "incremental": false
+    },
+    "exclude": ["node_modules", "stories", "tests", "test"]
+}

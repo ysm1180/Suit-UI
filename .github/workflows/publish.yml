@@ -1,0 +1,32 @@
+name: Publish Package
+
+on:
+    create:
+
+jobs:
+    build:
+        if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: '14.x'
+                  registry-url: https://registry.npmjs.org/
+
+            - uses: actions/cache@v2
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Install and Build library
+              run: |
+                  yarn install --frozen-lockfile
+                  yarn build
+
+            - name: Publish
+              run: npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
