@@ -1,5 +1,6 @@
 # Suit-UI
 
+snowpack 과 rebass 를 같이 사용하려니 많은 애로사항이 발생해 직접 만들었습니다.
 React UI library 입니다.
 
 #### **[Demo](https://ysm1180.github.io/Suit-UI/)**
@@ -16,10 +17,10 @@ yarn add @ysm1180/suit-ui
 
 ```typescript
 import React from 'react';
-import { Button } from '@ysm1180/suit-ui';
+import { Box, Button } from '@ysm1180/suit-ui';
 
 function App() {
-  return <Button size="sm">Hello world!</Button>
+  return <Box><Button size="sm">Hello world!</Button></Box>
 }
 
 ```
