@@ -1,6 +1,6 @@
 import { KeyCodes } from './keyCodes';
 
-const DirectionalKeyCodes: { [key: number]: number } = {
+const DirectionalKeyCodes: { [key: string]: number } = {
     [KeyCodes.up]: 1,
     [KeyCodes.down]: 1,
     [KeyCodes.left]: 1,
@@ -12,6 +12,6 @@ const DirectionalKeyCodes: { [key: number]: number } = {
     [KeyCodes.pageDown]: 1,
 };
 
-export function isDirectionalKeyCode(which: number): boolean {
-    return !!DirectionalKeyCodes[which];
+export function isDirectionalKeyCode(key: string): boolean {
+    return !!DirectionalKeyCodes[key];
 }
