@@ -35,7 +35,7 @@ export default function useBreakpoints<T extends string | number | symbol>(break
 
         const updateMatch = () => {
             if (active) {
-                let value: T | undefined = undefined;
+                let value: T | undefined;
                 if (typeof breakpoints !== 'object') {
                     value = breakpoints;
                 } else {

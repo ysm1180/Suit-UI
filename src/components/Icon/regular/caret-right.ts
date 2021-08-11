@@ -1,4 +1,4 @@
-import { IconDefinition } from '../../../types/icon';
+import { IconDefinition } from '../../../types';
 
 export const caretRight: IconDefinition = {
     title: 'caret-right',

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { BackgroundColorProps, BorderColorProps } from '../../common';
 import SchedulerTimeline from './SchedulerTimeline';
-import { SchedulerTimelineData, SchedulerWeekData } from '../../types/scheduler';
+import { SchedulerTimelineData, SchedulerWeekData } from '../../types';
 
 interface Props {
     timelines: SchedulerTimelineData[];

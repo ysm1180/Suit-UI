@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
-import React, { Component, createRef } from 'react';
-import { RadioChangeEvent } from '../../types/radio';
+import React, { Component } from 'react';
+import { RadioChangeEvent } from '../../types';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 import icons from '../Icon/icons';
@@ -50,13 +50,11 @@ const TextareaJsonRaw = styled.textarea`
 export interface ObjectInputboxProps {
     label?: string;
     value?: string;
-    additionalOnValueChangeArgs?: any[];
+    additionalOnValueChangeArgs?: unknown[];
     allowDrop?: boolean;
     showList?: boolean;
     listItems?: string[];
-    onValueChange?: (value: string, ...args: any[]) => void;
-    onListItemClick?: (value: string, ...args: any[]) => void;
-    additionalonListItemClickArgs?: any[];
+    onValueChange?: (value: string, ...args: unknown[]) => void;
 }
 
 interface Json {
@@ -74,8 +72,6 @@ interface States {
 }
 
 class ObjectInputbox extends Component<ObjectInputboxProps, States> {
-    private inputRef = createRef<HTMLInputElement>();
-
     constructor(props: ObjectInputboxProps) {
         super(props);
 
@@ -97,8 +93,7 @@ class ObjectInputbox extends Component<ObjectInputboxProps, States> {
             JSON.stringify(this.props.additionalOnValueChangeArgs) !==
                 JSON.stringify(nextProps.additionalOnValueChangeArgs) ||
             this.props.onValueChange !== nextProps.onValueChange ||
-            JSON.stringify(this.state) !== JSON.stringify(nextState) ||
-            this.props.onListItemClick !== nextProps.onListItemClick
+            JSON.stringify(this.state) !== JSON.stringify(nextState)
         );
     }
 

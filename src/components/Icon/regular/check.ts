@@ -1,4 +1,4 @@
-import { IconDefinition } from '../../../types/icon';
+import { IconDefinition } from '../../../types';
 
 export const check: IconDefinition = {
     title: 'check',

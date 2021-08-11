@@ -24,6 +24,7 @@ const TableCell = styled.div<BackgroundColorProps>`
         props.draggable &&
         css`
             cursor: move;
+
             &:hover {
                 background-color: #666666;
                 color: white;
@@ -46,19 +47,19 @@ export interface VirtualTableProps {
 
 const CustomVirtualTable: React.FC<VirtualTableProps> = memo(
     ({
-        columns = [],
-        rows = [],
-        maxDisplayColumns = columns.length,
-        loading = false,
-        emphasizeRowIndex = -1,
-        draggable = false,
-        onDragStart,
-        onDragEnd,
-        height = 250,
-        rowHeight = 26,
-    }) => {
+         columns = [],
+         rows = [],
+         maxDisplayColumns = columns.length,
+         loading = false,
+         emphasizeRowIndex = -1,
+         draggable = false,
+         onDragStart,
+         onDragEnd,
+         height = 250,
+         rowHeight = 26,
+     }) => {
         const [maxColumnLength, setMaxColumnLength] = useState(
-            maxDisplayColumns < columns.length ? maxDisplayColumns : columns.length
+            maxDisplayColumns < columns.length ? maxDisplayColumns : columns.length,
         );
         const onCellDragStart = (e: React.DragEvent) => {
             const data = e.currentTarget.getAttribute('data-drop');
@@ -70,7 +71,7 @@ const CustomVirtualTable: React.FC<VirtualTableProps> = memo(
             }
         };
 
-        const onCellDragEnd = (e: React.DragEvent) => {
+        const onCellDragEnd = () => {
             if (onDragEnd) {
                 onDragEnd();
             }
@@ -84,7 +85,7 @@ const CustomVirtualTable: React.FC<VirtualTableProps> = memo(
             setMaxColumnLength(columnLength);
         }, [columns, maxDisplayColumns]);
 
-        const cellRenderer: GridCellRenderer = ({ columnIndex, rowIndex, style, key, parent }) => {
+        const cellRenderer: GridCellRenderer = ({ columnIndex, rowIndex, style, key }) => {
             let value: string | JSX.Element | undefined | null = undefined;
             const isColumn = rowIndex === 0;
             if (isColumn) {
@@ -98,7 +99,7 @@ const CustomVirtualTable: React.FC<VirtualTableProps> = memo(
             const isEmphasize = rowIndex > 0 && emphasizeRowIndex !== -1 && rowIndex - 1 === emphasizeRowIndex;
             const newStyle = Object.assign({}, style, { borderBottom: isColumn ? '2px solid #ccc' : '1px solid #eee' });
             return (
-                <Flex style={newStyle} key={key} alignItems="center" flexGrow={1}>
+                <Flex style={newStyle} key={key} alignItems='center' flexGrow={1}>
                     <TableCell
                         key={columnIndex}
                         backgroundColor={isEmphasize ? '#FFC940' : ''}
@@ -179,20 +180,20 @@ const CustomVirtualTable: React.FC<VirtualTableProps> = memo(
                                     width={adjustedWidth}
                                     fixedRowCount={1}
                                     scrollToRow={emphasizeRowIndex + 1}
-                                ></MultiGrid>
+                                />
                             )}
                         </ColumnSizer>
                     )}
                 </AutoSizer>
                 {loading && (
                     <Flex
-                        alignItems="center"
-                        justifyContent="center"
+                        alignItems='center'
+                        justifyContent='center'
                         css={css`
                             margin-top: 20px;
                         `}
                     >
-                        <Icon size="2x" icon={icons.regular.spinner} spin />
+                        <Icon size='2x' icon={icons.regular.spinner} spin />
                     </Flex>
                 )}
             </div>
@@ -256,7 +257,7 @@ const CustomVirtualTable: React.FC<VirtualTableProps> = memo(
             //     )}
             // </Box>
         );
-    }
+    },
 );
 
 export default CustomVirtualTable;

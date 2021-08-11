@@ -25,7 +25,7 @@ import {
     RowContents,
     TableColumnInfo,
     TableRowValue,
-} from '../../types/table';
+} from '../../types';
 import { extractValuesInCell, getPercentText, getRowContent } from '../../utilities';
 import Icon from '../Icon/Icon';
 import icons from '../Icon/icons';
@@ -147,7 +147,7 @@ const TableBody = styled.tbody`
     width: 100%;
 `;
 
-export interface TableProps<U extends string> extends WidthProps, HeightProps{
+export interface TableProps<U extends string> extends WidthProps, HeightProps {
     columns?: TableColumnInfo<U>[];
     showColumn?: boolean;
     showGrid?: boolean;
@@ -552,7 +552,7 @@ const Table = <Keys extends string>({
                                 columnWidthList={columnWidthList}
                                 defaultColumnWidthPercent={defaultColumnWidthPercent}
                                 showGrid={showGrid}
-                            ></TableRow>
+                            />
                         ))}
                     </TableBody>
                 </TableBodyContainer>

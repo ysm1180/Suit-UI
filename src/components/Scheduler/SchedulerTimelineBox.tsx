@@ -3,7 +3,7 @@ import { darken } from 'polished';
 import React, { useCallback, useMemo } from 'react';
 import { BackgroundColorProps, borderColor, BorderColorProps, ColorProps, useBreakpoints } from '../../common';
 import { Box, Text } from '../../base';
-import { SchedulerTimelineData } from '../../types/scheduler';
+import { SchedulerTimelineData } from '../../types';
 
 const SchedulerTimelineContainer = styled(Box)`
     position: absolute;

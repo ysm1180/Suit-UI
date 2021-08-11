@@ -214,7 +214,7 @@ class Inputbox extends Component<InputboxProps, States> {
         );
     }
 
-    componentDidUpdate(prevProps: InputboxProps, prevState: States) {
+    componentDidUpdate(prevProps: InputboxProps, _: States) {
         if (prevProps.defaultValue !== this.props.defaultValue) {
             this.setState({
                 inputValue: this.props.defaultValue || this.state.inputValue,
@@ -254,7 +254,7 @@ class Inputbox extends Component<InputboxProps, States> {
         }
     };
 
-    onInputFocus = (e: React.FocusEvent) => {
+    onInputFocus = () => {
         if (this.props.showList) {
             this.setState({ isShowList: true });
         }
@@ -359,7 +359,7 @@ class Inputbox extends Component<InputboxProps, States> {
                             items={listItems ? listItems : []}
                             onClick={onListItemClick}
                             clickArgs={listItemClickArgs}
-                        ></InputboxList>
+                        />
                     )}
                 </InputboxTextContainer>
             </InputContainer>

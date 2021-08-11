@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { RadioChangeEvent } from '../../types/radio';
+import { RadioChangeEvent } from '../../types';
 
 interface RadioGroupContextProps {
     name?: string;

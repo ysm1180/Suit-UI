@@ -247,7 +247,7 @@ class Dropdown extends Component<DropdownProps, States> {
 
     private dropdownInputRef = createRef<HTMLInputElement>();
     private dropdownList = createRef<DropdownList>();
-    private keyEvent: (e: KeyboardEvent) => void;
+    private readonly keyEvent: (e: KeyboardEvent) => void;
 
     constructor(props: DropdownProps) {
         super(props);
@@ -328,7 +328,7 @@ class Dropdown extends Component<DropdownProps, States> {
         return (obj as ItemObject).label !== undefined && (obj as ItemObject).value !== undefined;
     }
 
-    componentDidUpdate(prevProps: DropdownProps, prevState: States) {
+    componentDidUpdate(prevProps: DropdownProps, _: States) {
         const items = this.props.items!;
         if (JSON.stringify(prevProps.items) !== JSON.stringify(items) || prevProps.value !== this.props.value) {
             let initLabel = '';

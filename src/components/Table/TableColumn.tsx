@@ -5,7 +5,7 @@ import { debounce } from 'lodash-es';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { backgroundColor, BackgroundColorProps, color, ColorProps, width } from '../../common';
 import { Flex } from '../../base';
-import { COLUMN_SORT_STATE, Rect, TableColumnInfo } from '../../types/table';
+import { COLUMN_SORT_STATE, Rect, TableColumnInfo } from '../../types';
 import Icon from '../Icon/Icon';
 import icons from '../Icon/icons';
 import Tooltip from '../Tooltip/Tooltip';
@@ -21,6 +21,7 @@ const TableHeaderColumnContainer = styled(Flex)<TableHeaderColumnContainerStyleP
             border-top: 1px solid #e8e8e8;
             border-left: 1px solid #e8e8e8;
             border-bottom: 1px solid #e8e8e8;
+
             &:last-child {
                 border-right: 1px solid #e8e8e8;
             }
@@ -42,6 +43,7 @@ const TableHeaderColumn = styled.div<TableHeaderColumnStyleProps>`
     align-items: center;
 
     cursor: ${(props) => (props.sort ? 'pointer' : '')};
+
     &:hover {
         background-color: ${(props) => (props.sort ? props.hoverBackgroundColor : '')};
     }
@@ -62,6 +64,7 @@ const TableColumnFilter = styled.div<TableColumnFilterStyleProps & ColorProps>`
 
     outline: 0;
     cursor: pointer;
+
     &:hover {
         background-color: ${(props) => props.hoverBackgroundColor};
     }
@@ -191,7 +194,7 @@ const TableColumn: React.FC<TableColumnProps> = ({
             };
 
             const observer = new IntersectionObserver(
-                (entries, observer) => {
+                (entries) => {
                     entries.forEach((entry) => {
                         if (entry.intersectionRatio > 0) {
                             update();

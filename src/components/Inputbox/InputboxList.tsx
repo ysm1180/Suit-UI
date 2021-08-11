@@ -30,6 +30,7 @@ const InputboxListContainer = styled.div<InputListContainerStyleProps>`
 const InputboxListItem = styled.div`
     padding: 8px;
     cursor: pointer;
+
     &:hover {
         background-color: #f2f2f2;
     }
@@ -71,7 +72,7 @@ const InputboxList: React.FC<InputboxListProps> = ({ maxHeight, items, onClick, 
                     </InputboxListItem>
                 ))
             ) : (
-                <div></div>
+                <div />
             )}
         </InputboxListContainer>
     );

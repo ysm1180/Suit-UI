@@ -1,4 +1,4 @@
-import { Cell, CellRows, CellWithStyle } from '../../types/table';
+import { Cell, CellRows, CellWithStyle } from '../../types';
 
 export const extractValuesInCell: <T extends string>(_?: Cell<T>) => string[] = <T extends string>(cell?: Cell<T>) => {
     if (!cell) {

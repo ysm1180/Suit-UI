@@ -3,7 +3,7 @@ import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import React, { SVGAttributes } from 'react';
 import { variant, VariantArgs } from '../../common';
-import { IconDefinition } from '../../types/icon';
+import { IconDefinition } from '../../types';
 
 export type IconSize = 'xs' | 'sm' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
 

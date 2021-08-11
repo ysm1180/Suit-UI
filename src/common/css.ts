@@ -129,7 +129,7 @@ export const cssLength = (length?: Length) => {
 export const cssBreakpoints = <T extends string | number | symbol>(
     key: string,
     value?: T | Breakpoints<T>,
-    transform: (value: T) => string | undefined = (value) => undefined
+    transform: (value: T) => string | undefined = () => undefined
 ) => {
     let appliedValue: { [bp in 'xs' | 'sm' | 'md' | 'lg' | 'xl']?: T } = {};
     if (typeof value === 'object') {

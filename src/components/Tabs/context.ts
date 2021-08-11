@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { TabIdentity } from '../../types/tab';
+import { TabIdentity } from '../../types';
 
 export interface TabContextProps {
     selectedId?: TabIdentity | null;

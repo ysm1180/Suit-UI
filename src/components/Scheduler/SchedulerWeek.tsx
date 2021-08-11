@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { borderColor, BorderColorProps, color, ColorProps } from '../../common';
-import { SchedulerWeekData } from '../../types/scheduler';
+import { SchedulerWeekData } from '../../types';
 
 const SchedulerTableRow = styled.div`
     display: flex;
@@ -30,9 +30,9 @@ const SchedulerTableDayItem = styled.div<ColorProps & BorderColorProps>`
     border-top: 1px solid;
     border-right: 1px solid;
 
-    ${borderColor}
-
     font-size: 14px;
+    
+    ${borderColor}
 
     ${color}
 `;

@@ -116,7 +116,7 @@ const Checkbox: React.FC<CheckboxProps> = memo(
         const [checkState, setCheckState] = useState(checked);
 
         const onClick = useCallback(
-            (e: React.MouseEvent) => {
+            () => {
                 setCheckState(!checkState);
                 onChange?.(value, !checkState);
             },
@@ -135,7 +135,7 @@ const Checkbox: React.FC<CheckboxProps> = memo(
 
         return (
             <CheckboxContainer>
-                <CheckboxInput onClick={onClick} type="checkbox" id={checkboxId}></CheckboxInput>
+                <CheckboxInput onClick={onClick} type="checkbox" id={checkboxId} />
                 <CheckboxLabelContainer textColor={textColor} htmlFor={checkboxId}>
                     <CheckboxInner checked={checkState} checkedColor={checkedColor}>
                         <CheckboxIcon icon={icons.regular.check} size="xs" color="white" />

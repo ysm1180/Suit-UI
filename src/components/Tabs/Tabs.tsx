@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useState } from 'react';
 import { backgroundColor, BackgroundColorProps, borderColor, BorderColorProps, width, WidthProps } from '../../common';
 import { Flex } from '../../base';
-import { TabChangeEvent, TabClickEvent, TabIdentity } from '../../types/tab';
+import { TabChangeEvent, TabClickEvent, TabIdentity } from '../../types';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 import icons from '../Icon/icons';

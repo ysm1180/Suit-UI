@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+
 export interface Rect {
     left: number;
     top: number;
@@ -20,7 +22,7 @@ export type CellWidth = RawCellWidth | HasChildCellidth;
 
 export interface CellWithStyle {
     content: string;
-    style?: React.CSSProperties;
+    style?: CSSProperties;
 }
 
 export interface TableColumnInfo<T extends string> {

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { darken } from 'polished';
 import React, { memo, useCallback } from 'react';
 import { BackgroundColorProps, ColorProps, cssBreakpoints } from '../../common';
-import { CellWidth, InnerTableCellValue } from '../../types/table';
+import { CellWidth, InnerTableCellValue } from '../../types';
 import TableCell from './TableCell';
 
 interface TableCellContainerStyleProps {
@@ -28,7 +28,6 @@ const TableRowContainer = styled.tr<TableCellContainerStyleProps & BackgroundCol
             (value) => value
         )}
     `}
-
     &:hover {
         color: ${(props) => props.hoverColor || ''};
         background-color: ${(props) => props.hoverBackgroundColor || ''};
@@ -114,7 +113,7 @@ const TableRow: React.FC<TableRowProps> = memo(
                             value={value}
                             key={`cell_${index}_${columnIndex}`}
                             showAllGrid={showGrid}
-                        ></TableCell>
+                        />
                     );
                 })}
             </TableRowContainer>

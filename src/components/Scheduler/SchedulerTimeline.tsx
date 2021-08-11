@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import React, { useCallback, useMemo } from 'react';
 import { backgroundColor, BackgroundColorProps, borderColor, BorderColorProps, ColorProps } from '../../common';
 import { Box, Flex } from '../../base';
-import { getContrast } from '../../utilities/color/color';
-import { SchedulerTimelineData, SchedulerWeekData } from '../../types/scheduler';
+import { getContrast } from '../../utilities';
+import { SchedulerTimelineData, SchedulerWeekData } from '../../types';
 import SchedulerTimelineBox from './SchedulerTimelineBox';
 
 const SchedulerTableDayItem = styled.div<ColorProps & BackgroundColorProps & BorderColorProps>`

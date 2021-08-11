@@ -1,5 +1,5 @@
 import React from 'react';
-import { RadioChangeEvent } from '../../types/radio';
+import { RadioChangeEvent } from '../../types';
 import { useUniqueId } from '../../utilities/useUniqueId';
 import { RadioGroupContextProvider } from './context';
 

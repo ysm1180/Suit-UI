@@ -189,7 +189,7 @@ const SwtichToggle: React.FC<SwitchToggleProps & TextColorProps> = memo(
                     size={size}
                     id={switchId}
                     onClick={onClick}
-                ></SwitchButton>
+                />
                 <SwitchLabel disable={disable} textColor={textColor} size={size} htmlFor={switchId}>
                     {children}
                 </SwitchLabel>

@@ -9,7 +9,7 @@ import {
     TextColorProps,
 } from '../../common';
 import { Flex } from '../../base';
-import { SchedulerDayData, SchedulerTimelineData, SchedulerWeekData } from '../../types/scheduler';
+import { SchedulerDayData, SchedulerTimelineData, SchedulerWeekData } from '../../types';
 import SchedulerTableHeader from './SchedulerTableHeader';
 import SchedulerTimelines from './SchedulerTimelines';
 import SchedulerTitle from './SchedulerTitle';

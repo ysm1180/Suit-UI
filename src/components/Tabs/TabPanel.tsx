@@ -1,5 +1,5 @@
 import React, { ReactNode, useContext } from 'react';
-import { TabIdentity } from '../../types/tab';
+import { TabIdentity } from '../../types';
 import TabContext from './context';
 import { Flex, FlexboxProps } from '../../base';
 

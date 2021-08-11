@@ -13,7 +13,6 @@ interface InputBoxTextStyleProps {
 
 const InputBoxText = styled.div<InputBoxTextStyleProps & WidthProps>`
     ${width}
-
     input {
         width: 100%;
         box-sizing: border-box;
@@ -32,7 +31,6 @@ const InputBoxText = styled.div<InputBoxTextStyleProps & WidthProps>`
 
 const InputBoxTextContainer = styled.div<WidthProps>`
     ${width}
-
     ${InputBoxText}:first-child input {
         border-top-left-radius: 5px;
         border-top-right-radius: 0;
@@ -124,7 +122,7 @@ const ArrayInput: React.FC<Props> = ({ inputIndex, inputValue, allowDrop, onValu
                         onChange={onArrayValueChange}
                         onDrop={onValueDrop}
                         onDragOver={onAllowDrop}
-                    ></input>
+                    />
                 </InputBoxText>
                 <Button
                     width={0.15}

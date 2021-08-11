@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconDefinition } from '../../../types/icon';
+import { IconDefinition } from '../../../types';
 
 export const tails: IconDefinition = {
     title: 'animation-tails',

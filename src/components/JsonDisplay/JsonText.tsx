@@ -109,7 +109,7 @@ const JsonText: React.FC<JsonTextProps> = memo(({ value, depth, indent, showArra
                                 </div>
                             );
                         } else {
-                            valueElement = <span></span>;
+                            valueElement = <span />;
                         }
                     }
                 } else if (typeof jsonValue === 'boolean') {

@@ -17,8 +17,8 @@ const TooltipContainer = styled.div<TooltipContainerStyleProps>`
     max-width: 800px;
     z-index: 100;
 
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     transform: ${(props) => `translate3d(${props.left}px, ${props.top}px, 0px)`};
 `;
 
@@ -160,12 +160,12 @@ const Tooltip: React.FC<TooltipProps> = memo(
         useEffect(() => {
             if (target) {
                 let showTimeout: NodeJS.Timeout;
-                const mouseOverEventHandler = (e: Event) => {
+                const mouseOverEventHandler = () => {
                     showTimeout = setTimeout(() => {
                         showTooltip();
                     }, delay);
                 };
-                const mouseLeaveEventHandler = (e: Event) => {
+                const mouseLeaveEventHandler = () => {
                     clearTimeout(showTimeout);
                     setShowState(false);
                 };

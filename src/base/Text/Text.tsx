@@ -50,7 +50,7 @@ export interface TextStyleProps
     lineHeight?: Length;
 }
 
-const text: CssStyleFn<TextStyleProps> = ({ fontFamily, fontVariant, lineHeight, display, style }: TextStyleProps) => ({
+const text: CssStyleFn<TextStyleProps> = ({ fontFamily, fontVariant, lineHeight, style }: TextStyleProps) => ({
     fontFamily,
     fontVariant,
     lineHeight: cssLength(lineHeight),

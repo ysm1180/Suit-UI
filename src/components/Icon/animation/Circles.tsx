@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconDefinition } from '../../../types/icon';
+import { IconDefinition } from '../../../types';
 
 export const circles: IconDefinition = {
     title: 'animation-circles',

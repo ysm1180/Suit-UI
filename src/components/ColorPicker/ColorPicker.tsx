@@ -4,7 +4,7 @@ import { ColorFormats } from 'tinycolor2';
 import { Button, Inputbox } from '../..';
 import { Box, Flex } from '../../base';
 import { TextColorProps, WidthProps } from '../../common';
-import { ChangeColorEvent, ColorValues } from '../../types/colorpicker';
+import { ChangeColorEvent, ColorValues } from '../../types';
 import { isValidHex, toColorFormats } from '../../utilities/color/color';
 import Icon from '../Icon/Icon';
 import icons from '../Icon/icons';
@@ -23,12 +23,13 @@ const DisplayColorContainer = styled.div`
 interface ActiveColorStyleProps {
     rgb: ColorFormats.RGB;
 }
+
 const ActiveColor = styled.div<ActiveColorStyleProps>`
     position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     background: ${(props) => `rgba(${props.rgb.r}, ${props.rgb.g}, ${props.rgb.b}, 1)`};
 `;
 
@@ -43,7 +44,7 @@ export type ColorPickerProps = {
     showCancel?: boolean;
     showOK?: boolean;
 } & WidthProps &
-    TextColorProps<'textColor'>;
+    TextColorProps;
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
     width,
@@ -70,7 +71,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
     }, [hex, rgb, onCancel]);
 
     const onChange: ChangeColorEvent = useCallback(
-        (data, e) => {
+        (data) => {
             const colors = toColorFormats(data, data.h);
             setSelectedColor(colors);
             onColorChange?.(colors);
@@ -128,10 +129,10 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
             </Box>
             <Flex>
                 <Box position="relative" height="16px" style={{ flex: '1' }}>
-                    <Hue direction="horizontal" hsl={selectedColor.hsl} onChange={onChange}></Hue>
+                    <Hue direction="horizontal" hsl={selectedColor.hsl} onChange={onChange} />
                 </Box>
                 <DisplayColorContainer>
-                    <ActiveColor rgb={selectedColor.rgb}></ActiveColor>
+                    <ActiveColor rgb={selectedColor.rgb} />
                 </DisplayColorContainer>
             </Flex>
             {(showHex || showRGB) && (
@@ -144,7 +145,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
                                 defaultValue={selectedColor.hex.replace('#', '')}
                                 onValueChange={onHexChange}
                                 textColor={textColor}
-                            ></Inputbox>
+                            />
                         </Flex>
                     )}
                     {showRGB && (
@@ -157,7 +158,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
                                     args={['r']}
                                     onValueChange={onRGBChange}
                                     textColor={textColor}
-                                ></Inputbox>
+                                />
                             </Flex>
                             <Flex flexGrow={1} flexShrink={1} flexBasis="0">
                                 <Inputbox
@@ -167,7 +168,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
                                     args={['g']}
                                     onValueChange={onRGBChange}
                                     textColor={textColor}
-                                ></Inputbox>
+                                />
                             </Flex>
                             <Flex flexGrow={1} flexShrink={1} flexBasis="0">
                                 <Inputbox
@@ -177,7 +178,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
                                     args={['b']}
                                     onValueChange={onRGBChange}
                                     textColor={textColor}
-                                ></Inputbox>
+                                />
                             </Flex>
                         </>
                     )}

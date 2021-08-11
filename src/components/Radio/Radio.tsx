@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import React, { forwardRef, Fragment, useCallback, useContext, useMemo } from 'react';
 import { Flex } from '../../base';
-import { RadioChangeEvent } from '../../types/radio';
+import { RadioChangeEvent } from '../../types';
 import RadioGroupContext from './context';
 
 export interface RadioProps {

@@ -8,7 +8,7 @@ import {
     CellValue,
     CellRows,
     CellWithStyle,
-} from '../../types/table';
+} from '../../types';
 
 interface TableCellStyleProps {
     showAllGrid: boolean;

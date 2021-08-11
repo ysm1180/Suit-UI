@@ -13,7 +13,6 @@ interface InputBoxTextStyleProps {
 
 const InputBoxText = styled.div<InputBoxTextStyleProps & WidthProps>`
     ${width}
-
     input {
         width: 100%;
         box-sizing: border-box;
@@ -139,7 +138,7 @@ const JsonInput: React.FC<Props> = memo(
             <InputBoxTextContainer width="100%">
                 <Flex>
                     <InputBoxText width={0.45}>
-                        <input type="text" placeholder="key" onChange={onKeyChange} value={jsonKey}></input>
+                        <input type="text" placeholder="key" onChange={onKeyChange} value={jsonKey} />
                     </InputBoxText>
                     <InputBoxText width={0.45} drop={allowDrop}>
                         <input
@@ -149,7 +148,7 @@ const JsonInput: React.FC<Props> = memo(
                             value={jsonValue}
                             onDragOver={onAllowDrop}
                             onDrop={onValueDrop}
-                        ></input>
+                        />
                     </InputBoxText>
                     <Button
                         width={0.1}

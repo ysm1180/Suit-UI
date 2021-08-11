@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import React, { useCallback, useRef } from 'react';
 import { ColorFormats } from 'tinycolor2';
 import { Box } from '../../base';
-import { ChangeColorEvent } from '../../types/colorpicker';
+import { ChangeColorEvent } from '../../types';
 import * as hue from '../../utilities/color/hue';
 
 const HueHorizontal = styled.div`
@@ -91,13 +91,13 @@ const Hue: React.FC<HueProps> = ({ direction, hsl, onChange }) => {
             {direction === 'horizontal' ? (
                 <HueHorizontal ref={ref} onMouseDown={onMouseDown}>
                     <SliderContainer h={hsl.h} vertical={false}>
-                        <Slider></Slider>
+                        <Slider />
                     </SliderContainer>
                 </HueHorizontal>
             ) : (
                 <HueVertical ref={ref} onMouseDown={onMouseDown}>
                     <SliderContainer h={hsl.h} vertical={true}>
-                        <Slider></Slider>
+                        <Slider />
                     </SliderContainer>
                 </HueVertical>
             )}

@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { throttle } from 'lodash-es';
 import React, { useCallback, useRef } from 'react';
 import { ColorFormats } from 'tinycolor2';
-import { ChangeColorEvent } from '../../types/colorpicker';
+import { ChangeColorEvent } from '../../types';
 import * as saturation from '../../utilities/color/saturation';
 
 const SaturationContainer = styled.div<{ h: number }>`
@@ -96,7 +96,7 @@ const Saturation: React.FC<HueProps> = ({ hsl, hsv, onChange }) => {
             <SaturationWhite>
                 <SaturationBlack>
                     <PointerContainer v={hsv.v} s={hsv.s}>
-                        <Circle></Circle>
+                        <Circle />
                     </PointerContainer>
                 </SaturationBlack>
             </SaturationWhite>
