@@ -160,6 +160,7 @@ export interface InputboxProps extends WidthProps, MarginProps, ColorProps {
     showList?: boolean;
     listItems?: string[];
     onValueChange?: (value: string, ...args: any[]) => void;
+    onKeyDown?: (e: React.KeyboardEvent) => void;
     onListItemClick?: (value: string, ...args: any[]) => void;
     onCopied?: (copiedValue: string) => void;
     listItemClickArgs?: any[];
@@ -199,6 +200,7 @@ class Inputbox extends Component<InputboxProps, States> {
             this.props.allowDrop !== nextProps.allowDrop ||
             JSON.stringify(this.props.args) !== JSON.stringify(nextProps.args) ||
             this.props.onValueChange !== nextProps.onValueChange ||
+            this.props.onKeyDown !== nextProps.onKeyDown ||
             this.props.onCopied !== nextProps.onCopied ||
             this.props.onListItemClick !== nextProps.onListItemClick ||
             JSON.stringify(this.props.backgroundColor) !== JSON.stringify(nextProps.backgroundColor) ||
@@ -272,6 +274,7 @@ class Inputbox extends Component<InputboxProps, States> {
             type,
             defaultValue,
             onValueChange,
+            onKeyDown,
             readOnly,
             copy,
             args,
@@ -298,6 +301,7 @@ class Inputbox extends Component<InputboxProps, States> {
                 type,
                 defaultValue,
                 onValueChange,
+                onKeyDown,
                 readOnly,
                 copy,
                 args,
@@ -339,6 +343,7 @@ class Inputbox extends Component<InputboxProps, States> {
                             disabled={readOnly}
                             type={type ?? 'text'}
                             value={inputValue}
+                            onKeyDown={onKeyDown}
                             onChange={this.onInputChange}
                             ref={this.inputRef}
                             onDragOver={onAllowDrop}
