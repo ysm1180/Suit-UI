@@ -111,7 +111,6 @@ const BoxStyledElement = styled('div', {
 export type BoxProps = BoxStyleProps & Omit<React.AllHTMLAttributes<HTMLDivElement>, keyof BoxStyleProps>;
 
 const Box = forwardRef<HTMLDivElement, React.PropsWithChildren<BoxProps>>(({ children, as, ...props }, ref) => {
-    console.log(props);
     return (
         <BoxStyledElement ref={ref} {...props}>
             {children}
